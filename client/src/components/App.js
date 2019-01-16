@@ -1,7 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import Header from './Header';
 
 const App = () => (
-  <div>App is being rendered</div>
+  <div>
+    <Router>
+      <div>
+        <Header />
+      </div>
+    </Router>
+  </div>
 );
 
 export default App;
