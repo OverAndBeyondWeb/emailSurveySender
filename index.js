@@ -26,6 +26,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+require('./routes/authRoutes')(app);
+require('./routes/billingRoutes')(app);
+
 if(process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
   const path = require('path');
@@ -33,8 +36,5 @@ if(process.env.NODE_ENV === 'production') {
     res.sendfile(path.resolve(__dirname, 'client', 'build', 'index.html'));
   })
 }
-
-require('./routes/authRoutes')(app);
-require('./routes/billingRoutes')(app);
 
 app.listen(PORT, () => console.log(`app listening on port ${PORT}`));
