@@ -3,12 +3,16 @@ const keys = require('../config/keys');
 sgMail.setApiKey(keys.sendGridKey);
 
 class Mailer {
+
   constructor({ subject, recipients }, content) {
     this.email = {};
     this.from_email = 'no-reply@emailSurveySender';
     this.subject = subject;
     this.html = content;
     this.recipients = this.formatAddresses(recipients);
+
+    this.formEmail();
+    this.addClickTTracking();
   }
 
   formatAddresses(recipients) {
@@ -30,26 +34,10 @@ class Mailer {
     };
   }
 
+  sendEmail() {
+    sgMail.sendMultiple(this.email);
+  }
+
 };
-
-//Testing Mailer class
-const survey = {
-  subject: 'this subject',
-  recipients: [
-    {email: 'j@j.com'},
-    {email: 'm@j.com'},
-    {email: 'g@j.com'},
-  ]
-}
-const mailer = new Mailer(survey, '<div>Hi there</div>');
-
-mailer.formEmail();
-
-console.log('mailer', mailer);
-mailer.addClickTTracking();
-
-console.log('mailer', mailer);
-
-//End Test
 
 module.exports =  Mailer;
