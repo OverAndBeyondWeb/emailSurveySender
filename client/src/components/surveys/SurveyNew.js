@@ -6,7 +6,7 @@ class SurveyNew extends Component {
     return (
       <div>
         <h1>New Survey</h1>
-        <h3><SurveyForm /></h3>
+        <SurveyForm />
       </div>
     );
   }
