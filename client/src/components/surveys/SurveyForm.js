@@ -40,7 +40,7 @@ const validate = values => {
 
   _.each(formFields, ({ name }) => {
 
-    errors.emails = validateEmails(values.emails);
+    errors.recipients = validateEmails(values.recipients);
 
     if (!values[name]) {
       name === 'recipients' 

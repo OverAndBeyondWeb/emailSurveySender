@@ -13,6 +13,7 @@ class App extends Component {
   componentDidMount() {
     this.props.fetchUser();
   }
+
   render() {
     return (
       <div className="container">
