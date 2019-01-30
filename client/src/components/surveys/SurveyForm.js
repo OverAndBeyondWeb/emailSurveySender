@@ -43,8 +43,8 @@ const validate = values => {
     errors.emails = validateEmails(values.emails);
 
     if (!values[name]) {
-      name === 'emails' 
-      ? errors[name] = 'You must provide at least 1 email'
+      name === 'recipients' 
+      ? errors[name] = 'You must provide at least 1 recipient email'
       : errors[name] = `You must provide a ${name}`;
     }
     

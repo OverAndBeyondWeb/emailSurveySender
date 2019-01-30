@@ -28,4 +28,7 @@ class SurveyNew extends Component {
   }
 };
 
+// connecting redux form to this component without 
+// the { destroyOnUnmount: false } option clears the 
+// input fields when SurveyNew unmounts
 export default reduxForm({form: 'surveyForm'})(SurveyNew);
